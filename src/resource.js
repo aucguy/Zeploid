@@ -214,7 +214,8 @@ base.registerModule('resource', function(module) {
     // Split the inputs into a list of path commands.
     var parts = [];
     for (var i = 0, l = arguments.length; i < l; i++) {
-      parts = parts.concat(arguments[i].split("/"));
+      if(parts !== "")
+        parts = parts.concat(arguments[i].split("/"));
     }
     // Interpret the path commands to get the new resolved path.
     var newParts = [];
@@ -234,6 +235,7 @@ base.registerModule('resource', function(module) {
     // Preserve the initial slash if there was one.
     if (parts[0] === "")
       newParts.unshift("");
+
     // Turn back into a single string path.
     return newParts.join("/") || (newParts.length ? "/" : ".");
   }
