@@ -214,7 +214,7 @@ base.registerModule('resource', function(module) {
     // Split the inputs into a list of path commands.
     var parts = [];
     for (var i = 0, l = arguments.length; i < l; i++) {
-      if(parts !== "")
+      if(arguments[i] !== "")
         parts = parts.concat(arguments[i].split("/"));
     }
     // Interpret the path commands to get the new resolved path.
